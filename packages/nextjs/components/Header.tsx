@@ -51,6 +51,10 @@ export const Header = () => {
           Example UI
         </NavLink>
       </li>
+      <li>
+        <NavLink href="/about-us">About Us</NavLink>
+      </li>
+      <s></s>
     </>
   );
 
