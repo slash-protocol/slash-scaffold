@@ -83,11 +83,8 @@ export const Header = () => {
           )}
         </div>
         <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6">
-          <div className="flex relative w-16 h-16">
+          <div className="flex relative w-32 h-32">
             <Image alt="SE2 logo" className="cursor-pointer" fill src="/assets/slash-logo.png" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-bold leading-tight">Slash Protocol</span>
           </div>
         </Link>
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">{navLinks}</ul>
