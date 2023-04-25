@@ -3,7 +3,6 @@ import * as chains from "wagmi/chains";
 import scaffoldConfig from "~~/scaffold.config";
 
 export type TChainAttributes = {
-  // color | [lightThemeColor, darkThemeColor]
   color: string | [string, string];
 };
 
