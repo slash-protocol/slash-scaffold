@@ -1,6 +1,5 @@
 import { hardhat } from "wagmi/chains";
 import { CurrencyDollarIcon } from "@heroicons/react/24/outline";
-import { HeartIcon } from "@heroicons/react/24/outline";
 import { Faucet } from "~~/components/scaffold-eth";
 import { useAppStore } from "~~/services/store/store";
 import { getTargetNetwork } from "~~/utils/scaffold-eth";
@@ -41,14 +40,14 @@ export const Footer = () => {
             </div>
             <span>·</span>
             <div>
-              Built with <HeartIcon className="inline-block h-4 w-4" /> at 🏰{" "}
+              Built with{" "}
               <a
-                href="https://buidlguidl.com/"
+                href="https://docs.scaffoldeth.io/scaffold-eth/"
                 target="_blank"
                 rel="noreferrer"
                 className="underline underline-offset-2"
               >
-                BuidlGuidl
+                Scaffold-eth
               </a>
             </div>
             <span>·</span>
@@ -61,6 +60,10 @@ export const Footer = () => {
               >
                 Support
               </a>
+            </div>
+            <span>·</span>
+            <div>
+              <a>© 2023 by Slack Protocol. All rights reserved.</a>
             </div>
           </div>
         </ul>
