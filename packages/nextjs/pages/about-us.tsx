@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import { ContractData } from "~~/components/vaults/ContractData";
 import { ContractInteraction } from "~~/components/vaults/ContractInteraction";
 
-const ExampleUI: NextPage = () => {
+const AboutUs: NextPage = () => {
   return (
     <>
       <Head>
@@ -13,7 +13,7 @@ const ExampleUI: NextPage = () => {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap" rel="stylesheet" />
       </Head>
-      <div className="grid lg:grid-cols-2 flex-grow" data-theme="exampleUi">
+      <div className="grid lg:grid-cols-2 flex-grow" data-theme="aboutUs">
         <ContractInteraction />
         <ContractData />
       </div>
@@ -21,4 +21,4 @@ const ExampleUI: NextPage = () => {
   );
 };
 
-export default ExampleUI;
+export default AboutUs;

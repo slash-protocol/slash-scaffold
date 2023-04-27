@@ -25,6 +25,9 @@ export const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="w-full text-right absolute bottom-0">
+        <a className=""> © 2023 by Slack Protocol. All rights reserved.</a>
+      </div>
       <div className="w-full">
         <ul className="menu menu-horizontal w-full">
           <div className="flex justify-center items-center gap-2 text-sm w-full">
@@ -60,10 +63,6 @@ export const Footer = () => {
               >
                 Support
               </a>
-            </div>
-            <span>·</span>
-            <div>
-              <a>© 2023 by Slack Protocol. All rights reserved.</a>
             </div>
           </div>
         </ul>
