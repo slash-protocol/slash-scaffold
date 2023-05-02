@@ -24,7 +24,7 @@ export const Footer = () => {
             {getTargetNetwork().id === hardhat.id && <Faucet />}
           </div>
           <div className="flex justify-end">
-            <a className="text-sm">© 2023 by Slack Protocol. All rights reserved.</a>
+            <a className="text-sm">© 2023 Slack Protocol. All rights reserved.</a>
           </div>
         </div>
       </div>
