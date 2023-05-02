@@ -23,10 +23,10 @@ export const Footer = () => {
             )}
             {getTargetNetwork().id === hardhat.id && <Faucet />}
           </div>
+          <div className="flex justify-end">
+            <a className="text-sm">© 2023 by Slack Protocol. All rights reserved.</a>
+          </div>
         </div>
-      </div>
-      <div className="w-full text-right absolute bottom-0">
-        <a className=""> © 2023 by Slack Protocol. All rights reserved.</a>
       </div>
       <div className="w-full">
         <ul className="menu menu-horizontal w-full">
