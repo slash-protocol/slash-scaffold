@@ -75,7 +75,7 @@ export const Faucet = () => {
     <div>
       <label
         htmlFor="faucet-modal"
-        className="btn btn-primary btn-sm px-2 rounded-full font-normal space-x-2 normal-case"
+        className="btn btn-primary btn-sm px-2 rounded-full bg-gray-400 font-normal space-x-2 normal-case"
       >
         <BanknotesIcon className="h-4 w-4" />
         <span>Faucet</span>
