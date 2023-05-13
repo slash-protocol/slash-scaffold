@@ -8,7 +8,7 @@ export type TChainAttributes = {
 
 export const NETWORKS_EXTRA_DATA: Record<string, TChainAttributes> = {
   [chains.hardhat.id]: {
-    color: "#b8af0c",
+    color: "#000000",
   },
   [chains.mainnet.id]: {
     color: "#ff8b9e",

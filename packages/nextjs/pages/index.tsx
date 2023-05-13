@@ -27,7 +27,44 @@ const Home: NextPage = () => {
           </p>
         </div>
 
-        <div className="flex-grow bg-base-100 w-full mt-16 px-8 py-12">
+        <div className="flex bg-base-100 items-center flex-col flex-grow pt-10">
+          <div className="px-5">
+            <p className="text-center mb-1">
+              <span className="block text-4xl font-bold">Slash Stats</span>
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-base-300 md:flex-row rounded-xl min-w-[95%] md:min-w-[95%] sm:min-w-[90%] my-8">
+          <div className="grid grid-cols-1 py-4 px-4 gap-8 gap-x-20 md:grid-cols-3 justify-center">
+            <div className="bg-base-200 py-6 rounded-xl mb-2 text-center">
+              <p className="hover:text-size">Total TVL</p>
+              <p className="hover:text-size">Object 1</p>
+            </div>
+            <div className="bg-base-200 py-6 rounded-xl mb-2 text-center">
+              <p className="hover:text-size">Marketcap (Fully Diluted)</p>
+              <p className="hover:text-size">Object 2</p>
+            </div>
+            <div className="bg-base-200 py-6 rounded-xl mb-2 text-center">
+              <p className="hover:text-size">Total Liquidity</p>
+              <p className="hover:text-size">Object 3</p>
+            </div>
+            <div className="bg-base-200 py-6 rounded-xl mb-2 text-center">
+              <p className="hover:text-size">Total Supply</p>
+              <p className="hover:text-size">Object 4</p>
+            </div>
+            <div className="bg-base-200 py-6 rounded-xl mb-2 text-center">
+              <p className="hover:text-size">Supply in Vaults</p>
+              <p className="hover:text-size">Object 5</p>
+            </div>
+            <div className="bg-base-200 py-6 rounded-xl mb-2 text-center">
+              <p className="hover:text-size">Circulating Supply</p>
+              <p className="hover:text-size">Object 6</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex-grow bg-base-100 w-full mt-1 px-2 py-4">
           <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
             <div className="flex flex-col bg-base-300 px-20 py-20 text-center items-center max-w-md rounded-3xl">
               <BugAntIcon className="h-8 w-8 fill-secondary" />
@@ -52,9 +89,10 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+
       <div className="flex-grow bg-base-100 w-full mt-25 px-8 py-12">
         <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-          <div className="flex flex-col bg-base-300 px-20 py-20 text-center items-center max-w-md rounded-3xl">
+          <div className="flex flex-col bg-base-300 px-64 py-20 text-center items-center w-full rounded-3xl">
             <BugAntIcon className="h-8 w-8 fill-secondary" />
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit,{" "}
@@ -62,16 +100,6 @@ const Home: NextPage = () => {
                 Lorem ipsum
               </Link>{" "}
               dolor.
-            </p>
-          </div>
-          <div className="flex flex-col bg-base-300 px-20 py-20 text-center items-center max-w-md rounded-3xl">
-            <SparklesIcon className="h-8 w-8 fill-secondary" />
-            <p>
-              Dolor sit amet{" "}
-              <Link href="/example-ui" passHref className="link">
-                Lorem ipsum
-              </Link>{" "}
-              consectetur adipiscing elit.
             </p>
           </div>
         </div>
