@@ -1,3 +1,4 @@
+import { Abi } from "abitype";
 import { ContractAbi, ContractName } from "~~/utils/scaffold-eth/contract";
 import { ExtractAbiEventNames } from "abitype";
 import { useProvider, useContract } from "wagmi";
@@ -44,7 +45,7 @@ export const useScaffoldEventHistory = <
 
   const contract = useContract({
     address: deployedContractData?.address,
-    abi: deployedContractData?.abi,
+    abi: deployedContractData?.abi as Abi,
     signerOrProvider: provider,
   });
 
@@ -118,7 +119,7 @@ export const useScaffoldEventHistory = <
     if (!deployedContractLoading) {
       readEvents();
     }
-  }, [provider, fromBlock, contractName, eventName, deployedContractLoading, deployedContractData?.address, contract]);
+  }, [provider, fromBlock, contractName, eventName, deployedContractLoading, deployedContractData?.address, contract, deployedContractData, filters, blockData, transactionData, receiptData]);
 
   return {
     data: events,

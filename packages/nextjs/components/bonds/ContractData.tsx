@@ -18,21 +18,21 @@ export const ContractData = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const greetingRef = useRef<HTMLDivElement>(null);
 
-  const { data: totalCounter } = useScaffoldContractRead({
-    contractName: "YourContract",
-    functionName: "totalCounter",
+  const { data: totalSupply, isLoading: isTotalSupplyLoading } = useScaffoldContractRead({
+    contractName: "SlashToken",
+    functionName: "totalSupply",
   });
 
-  const { data: currentGreeting, isLoading: isGreetingLoading } = useScaffoldContractRead({
-    contractName: "YourContract",
-    functionName: "greeting",
+  const { data: initialSupply } = useScaffoldContractRead({
+    contractName: "SlashToken",
+    functionName: "initSupply",
   });
 
   useScaffoldEventSubscriber({
-    contractName: "YourContract",
-    eventName: "GreetingChange",
-    listener: (greetingSetter, newGreeting, premium, value) => {
-      console.log(greetingSetter, newGreeting, premium, value);
+    contractName: "SlashVault",
+    eventName: "Deposit",
+    listener: (account, pid, amount) => {
+      console.log(account, pid, amount);
     },
   });
 
@@ -41,20 +41,26 @@ export const ContractData = () => {
     isLoading: isLoadingEvents,
     error: errorReadingEvents,
   } = useScaffoldEventHistory({
-    contractName: "YourContract",
-    eventName: "GreetingChange",
+    contractName: "SlashVault",
+    eventName: "Deposit",
     fromBlock: Number(process.env.NEXT_PUBLIC_DEPLOY_BLOCK) || 0,
     blockData: true,
   });
 
   console.log("events", isLoadingEvents, errorReadingEvents, events);
 
-  const { data: yourContract } = useScaffoldContract({ contractName: "YourContract" });
-  console.log("yourContract: ", yourContract);
+  const { data: slashToken } = useScaffoldContract({ contractName: "SlashToken" });
+  console.log("slashToken: ", slashToken);
 
-  const { showAnimation } = useAnimationConfig(totalCounter);
+  const { data: slashVault } = useScaffoldContract({ contractName: "SlashVault" });
+  console.log("slashVault: ", slashVault);
 
-  const showTransition = transitionEnabled && !!currentGreeting && !isGreetingLoading;
+  const { data: slashProtect } = useScaffoldContract({ contractName: "SlashProtect" });
+  console.log("slashProtect: ", slashProtect);
+
+  const { showAnimation } = useAnimationConfig(initialSupply);
+
+  const showTransition = transitionEnabled && !!totalSupply && !isTotalSupplyLoading;
 
   useEffect(() => {
     if (transitionEnabled && containerRef.current && greetingRef.current) {
@@ -87,7 +93,7 @@ export const ContractData = () => {
           <div className="bg-secondary border border-primary rounded-xl flex">
             <div className="p-2 py-1 border-r border-primary flex items-end">Total count</div>
             <div className="text-4xl text-right min-w-[3rem] px-2 py-1 flex justify-end font-bai-jamjuree">
-              {totalCounter?.toString() || "0"}
+              {initialSupply?.toString() || "0"}
             </div>
           </div>
         </div>
@@ -96,7 +102,7 @@ export const ContractData = () => {
           <div className="relative overflow-x-hidden" ref={containerRef}>
             {/* for speed calculating purposes */}
             <div className="absolute -left-[9999rem]" ref={greetingRef}>
-              <div className="px-4">{currentGreeting}</div>
+              <div className="px-4">{totalSupply?.toString()}</div>
             </div>
             {new Array(3).fill("").map((_, i) => {
               const isLineRightDirection = i % 2 ? isRightDirection : !isRightDirection;
@@ -109,7 +115,7 @@ export const ContractData = () => {
                   speed={marqueeSpeed}
                   className={i % 2 ? "-my-10" : ""}
                 >
-                  <div className="px-4">{currentGreeting || " "}</div>
+                  <div className="px-4">{totalSupply?.toString() || " "}</div>
                 </Marquee>
               );
             })}

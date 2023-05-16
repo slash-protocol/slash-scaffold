@@ -1,7 +1,7 @@
 import Head from "next/head";
 import type { NextPage } from "next";
+import { ContractData } from "~~/components/bonds/ContractData";
 import { VaultCard } from "~~/components/bonds/VaultCard";
-import { ContractData } from "~~/components/vaults/ContractData";
 
 const Vaults: NextPage = () => {
   return (

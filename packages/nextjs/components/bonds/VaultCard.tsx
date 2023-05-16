@@ -2,6 +2,8 @@ import { useState } from "react";
 import { CopyIcon } from "./assets/CopyIcon";
 import { DiamondIcon } from "./assets/DiamondIcon";
 import { HareIcon } from "./assets/HareIcon";
+import { BigNumber } from "ethers";
+import { useAccount } from "wagmi";
 import { ArrowSmallRightIcon } from "@heroicons/react/24/outline";
 import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 
@@ -15,14 +17,13 @@ export const VaultCard = ({
   duration: string;
 }) => {
   //const [visible, setVisible] = useState(true);
-  const [newGreeting, setNewGreeting] = useState("");
+  const [depositAmount, setDepositAmount] = useState(BigNumber.from(0));
   const [isDeposit, setIsDeposit] = useState(true); // added state for toggle
 
   const { writeAsync, isLoading } = useScaffoldContractWrite({
-    contractName: "YourContract",
-    functionName: "setGreeting",
-    args: [newGreeting],
-    value: "0.01",
+    contractName: "SlashVault",
+    functionName: "deposit",
+    args: [BigNumber.from(0), depositAmount, useAccount().address],
   });
 
   // const handleSubmit = () => {
@@ -56,7 +57,7 @@ export const VaultCard = ({
               type="number"
               placeholder={buttonText}
               className="input font-bai-jamjuree w-full px-5 bg-[url('/assets/gradient-bg.png')] bg-[length:100%_100%] border border-primary text-lg sm:text-2xl placeholder-white uppercase"
-              onChange={e => setNewGreeting(e.target.value)}
+              onChange={e => setDepositAmount(BigNumber.from(e.target.value).pow(18))}
             />
             <div className="flex rounded-full border border-primary p-1 flex-shrink-0">
               <div className="flex rounded-full border-2 border-primary p-1">

@@ -1,13 +1,10 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
+import { FACTORY_ADDRESS, INIT_CODE_HASH } from "@uniswap/sdk";
+import { pack, keccak256 } from "@ethersproject/solidity";
+import { getCreate2Address } from "@ethersproject/address";
 
-/**
- * Deploys a contract named "YourContract" using the deployer account and
- * constructor arguments set to the deployer address
- *
- * @param hre HardhatRuntimeEnvironment object.
- */
-const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+const deploySlashToken: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   /*
     On localhost, the deployer account is the one that comes with Hardhat, which is already funded.
 
@@ -20,11 +17,25 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   */
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
-
-  await deploy("YourContract", {
+  const slashToken = await hre.ethers.getContract("SlashToken", deployer);
+  const WETH = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
+  const pair = getCreate2Address(
+    FACTORY_ADDRESS,
+    keccak256(["bytes"], [pack(["address", "address"], [slashToken.address, WETH])]),
+    INIT_CODE_HASH,
+  );
+  console.log("SLASH-WETH Pair address is - ", pair);
+  console.log("Slash Token address is - ", slashToken.address);
+  const slashVault = await deploy("SlashVault", {
     from: deployer,
     // Contract constructor arguments
-    args: [deployer],
+    args: [
+      slashToken.address,
+      pair,
+      "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+      "10000000000000000000000000",
+      "16759639",
+    ],
     log: true,
     // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
     // automatically mining the contract deployment transaction. There is no effect on live networks.
@@ -32,11 +43,12 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   });
 
   // Get the deployed contract
-  // const yourContract = await hre.ethers.getContract("YourContract", deployer);
+
+  console.log("SLASH-WETH Vault deployed to:", slashVault.address);
 };
 
-export default deployYourContract;
+export default deploySlashToken;
 
 // Tags are useful if you have multiple deploy files and only want to run one of them.
-// e.g. yarn deploy --tags YourContract
-deployYourContract.tags = ["YourContract"];
+// e.g. yarn deploy --tags SlashVault
+deploySlashToken.tags = ["SlashVault"];

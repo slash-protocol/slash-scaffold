@@ -8,22 +8,34 @@ import { WagmiConfig } from "wagmi";
 import { Footer } from "~~/components/Footer";
 import { Header } from "~~/components/Header";
 import { BlockieAvatar } from "~~/components/scaffold-eth";
-import { useEthPrice } from "~~/hooks/scaffold-eth";
+import { useEthPrice, useTokenPrice } from "~~/hooks/scaffold-eth";
 import { useAppStore } from "~~/services/store/store";
 import { wagmiClient } from "~~/services/web3/wagmiClient";
 import { appChains } from "~~/services/web3/wagmiConnectors";
 import "~~/styles/globals.css";
 
 const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
-  const price = useEthPrice();
+  const ethPrice = useEthPrice();
   const setEthPrice = useAppStore(state => state.setEthPrice);
+  //const slashToken = useScaffoldContract({ contractName: "SlashToken" }).data?.address;
+  const slashToken = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  const tokenPrice = useTokenPrice("SlashToken");
+  const setTokenPrice = useAppStore(state => state.setTokenPrices);
+
+  useEffect(() => {
+    if (slashToken) {
+      if (tokenPrice > 0) {
+        setTokenPrice({ ["SlashToken"]: tokenPrice });
+      }
+    }
+  }, [tokenPrice, setTokenPrice, slashToken]);
   // This variable is required for initial client side rendering of correct theme for RainbowKit
 
   useEffect(() => {
-    if (price > 0) {
-      setEthPrice(price);
+    if (ethPrice > 0) {
+      setEthPrice(ethPrice);
     }
-  }, [setEthPrice, price]);
+  }, [setEthPrice, ethPrice]);
 
   return (
     <WagmiConfig client={wagmiClient}>
