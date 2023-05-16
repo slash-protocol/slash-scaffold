@@ -8,7 +8,7 @@ import { WagmiConfig } from "wagmi";
 import { Footer } from "~~/components/Footer";
 import { Header } from "~~/components/Header";
 import { BlockieAvatar } from "~~/components/scaffold-eth";
-import { useEthPrice, useTokenPrice } from "~~/hooks/scaffold-eth";
+import { useEthPrice, useScaffoldContract, useTokenPrice } from "~~/hooks/scaffold-eth";
 import { useAppStore } from "~~/services/store/store";
 import { wagmiClient } from "~~/services/web3/wagmiClient";
 import { appChains } from "~~/services/web3/wagmiConnectors";
@@ -17,8 +17,8 @@ import "~~/styles/globals.css";
 const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
   const ethPrice = useEthPrice();
   const setEthPrice = useAppStore(state => state.setEthPrice);
-  //const slashToken = useScaffoldContract({ contractName: "SlashToken" }).data?.address;
-  const slashToken = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  const slashToken = useScaffoldContract({ contractName: "SlashToken" }).data?.address;
+  //const slashToken = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
   const tokenPrice = useTokenPrice("SlashToken");
   const setTokenPrice = useAppStore(state => state.setTokenPrices);
 
