@@ -11,20 +11,29 @@ const Home: NextPage = () => {
         <meta name="description" content="Created with 🏗 scaffold-eth-2" />
       </Head>
 
-      <div className="flex bg-base-100 items-center flex-col flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center mb-8">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Slash Protocol</span>
-          </h1>
-          <p className="text-center text-lg">
-            Get started by editing{" "}
-            <code className="italic bg-base-300 text-base font-bold">packages/nextjs/pages/index.tsx</code>
-          </p>
-          <p className="text-center text-lg">
-            Edit your smart contract <code className="italic bg-base-300 text-base font-bold">YourContract.sol</code> in{" "}
-            <code className="italic bg-base-300 text-base font-bold">packages/hardhat/contracts</code>
-          </p>
+      <div className="flex bg-base-100 flex-col flex-grow pt-10">
+        <div className="flex flex-row justify-center">
+          <div className="mt-72">
+            <h1 className="mb-8">
+              <span className="block text-2xl mb-2">Welcome to</span>
+              <span className="block text-4xl font-bold">Slash Protocol</span>
+            </h1>
+            <p className="text-lg">
+              Get started by editing{" "}
+              <code className="italic bg-base-300 text-base font-bold">packages/nextjs/pages/index.tsx</code>
+            </p>
+            <p className="text-lg">
+              Edit your smart contract <code className="italic bg-base-300 text-base font-bold">YourContract.sol</code>{" "}
+              in <code className="italic bg-base-300 text-base font-bold">packages/hardhat/contracts</code>
+            </p>
+          </div>
+          {/* <div className="flex">
+            <img
+              src=""
+              alt=""
+              style={{ width: '1000px', height: '1000px' }}
+            />
+          </div> */}
         </div>
 
         <div className="flex bg-base-100 items-center flex-col flex-grow pt-10">
@@ -35,7 +44,7 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className="bg-base-300 md:flex-row rounded-xl min-w-[95%] md:min-w-[95%] sm:min-w-[90%] my-8">
+        <div className="bg-base-300 md:flex-row rounded-xl min-w-[95%] md:min-w-[95%] lg:min-w-[95%] sm:min-w-[90%] my-8">
           <div className="grid grid-cols-1 py-4 px-4 gap-8 gap-x-20 md:grid-cols-3 justify-center">
             <div className="bg-base-200 py-6 rounded-xl mb-2 text-center">
               <p className="hover:text-size">Total TVL</p>
@@ -103,12 +112,14 @@ const Home: NextPage = () => {
             </p>
           </div>
         </div>
+      </div>
 
+      <div className="flex justify-center items-center">
         <iframe
           src="https://app.uniswap.org/#/swap?theme=darkexactField=input&exactAmount=10&inputCurrency=0x6b175474e89094c44da98b954eedeac495271d0f"
           height="660px"
           width="75%"
-        />
+        ></iframe>
       </div>
     </>
   );
