@@ -37,7 +37,7 @@ module.exports = {
         vaults: {
           primary: "#000000",
           "primary-content": "#ffffff",
-          secondary: "#FF6644",
+          secondary: "#DAE8FF",
           "secondary-content": "#212638",
           accent: "#93BBFB",
           "accent-content": "#212638",
@@ -63,7 +63,7 @@ module.exports = {
         bonds: {
           primary: "#000000",
           "primary-content": "#ffffff",
-          secondary: "#FF6644",
+          secondary: "#DAE8FF",
           "secondary-content": "#212638",
           accent: "#93BBFB",
           "accent-content": "#212638",
@@ -92,6 +92,7 @@ module.exports = {
     extend: {
       fontFamily: {
         "bai-jamjuree": ["Bai Jamjuree", "sans-serif"],
+        "slash-font": ["Orbitron", "sans-serif"]
       },
       keyframes: {
         grow: {
