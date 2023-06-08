@@ -12,14 +12,14 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="flex bg-base-100 flex-col flex-grow">
-        <div className="flex flex-row justify-items-start">
-          <div className="mt-60 pl-12">
+        <div className="flex sm:flex-row justify-items-start">
+          <div className="flex sm:flex-col flex-grow mt-60 pl-12">
             <h1 className="mb-8">
               <span className="block text-2xl mb-2">Welcome to</span>
               <span className="block text-4xl font-bold">Slash Protocol</span>
             </h1>
             <p className="text-lg">
-              Get started by editing{" "}
+              A deflationary protocol built on Arbitrum.{" "}
               <code className="italic bg-base-200 text-base font-bold">packages/nextjs/pages/index.tsx</code>
             </p>
             <p className="text-lg">
@@ -27,14 +27,14 @@ const Home: NextPage = () => {
               in <code className="italic bg-base-200 text-base font-bold">packages/hardhat/contracts</code>
             </p>
           </div>
-          <div className="flex pl-12 w-[50%] -mb-24 mt-10">
+          <div className="flex sm:flex-col md:flex-grow pl-48 w-[50%] lg:min-w-[50%] sm:min-w-[50%] -mb-24 mt-10">
             <iframe
               src="https://app.uniswap.org/#/swap?theme=darkexactField=input&exactAmount=10&inputCurrency=0x6b175474e89094c44da98b954eedeac495271d0f"
               height="660px"
               width="95%"
             ></iframe>
           </div>
-
+          {/* <div className="bg-base-200 md:flex-row min-w-[95%] md:min-w-[95%] lg:min-w-[95%] sm:min-w-[90%] my-8"> */}
           {/* <div className="flex"> // FIND OUT HOW COLOUR THEMES WORK IN TAILWING CONFIG TO FIX ISSUES  
             <img
               src=""
@@ -116,19 +116,19 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="flex-grow bg-base-100 w-full mt-25 px-8 py-12">
-        <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-          <div className="flex flex-col bg-base-300 px-64 py-20 text-center items-center w-full rounded-3xl">
-            <BugAntIcon className="h-8 w-8 fill-secondary" />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,{" "}
-              <Link href="/debug" passHref className="link">
-                Lorem ipsum
-              </Link>{" "}
-              dolor.
-            </p>
+        <div className="flex-grow bg-base-100 w-full mt-25 px-8 py-12">
+          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
+            <div className="flex flex-col bg-base-300 px-64 py-20 text-center items-center w-full rounded-3xl">
+              <BugAntIcon className="h-8 w-8 fill-secondary" />
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit,{" "}
+                <Link href="/debug" passHref className="link">
+                  Lorem ipsum
+                </Link>{" "}
+                dolor.
+              </p>
+            </div>
           </div>
         </div>
       </div>

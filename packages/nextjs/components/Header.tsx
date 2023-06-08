@@ -48,11 +48,11 @@ export const Header = () => {
       <li>
         <NavLink href="/vaults">
           <SparklesIcon className="h-4 w-4" />
-          Example UI
+          Vaults
         </NavLink>
       </li>
       <li>
-        <NavLink href="/about-us">About Us</NavLink>
+        <NavLink href="/bonds">Bonds</NavLink>
       </li>
       <s></s>
     </>

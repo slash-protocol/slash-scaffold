@@ -22,8 +22,17 @@ export const Footer = () => {
               </div>
             )}
             {getTargetNetwork().id === hardhat.id && <Faucet />}
+            <div className="flex space-x-2 pointer-events-auto">
+              {ethPrice > 0 && (
+                <div className="btn btn-primary btn-sm bg-gray-400 font-normal cursor-auto">
+                  <CurrencyDollarIcon className="h-4 w-4 mr-0.5" />
+                  <span>{}</span>
+                </div>
+              )}
+              {getTargetNetwork().id === hardhat.id && <Faucet />}
+            </div>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-end sm:max-w-[90%] lg:max-w-[50%] max-w-[90%]">
             <a className="text-sm">© 2023 Slack Protocol. All rights reserved.</a>
           </div>
         </div>
@@ -31,7 +40,7 @@ export const Footer = () => {
       <div className="w-full">
         <ul className="menu menu-horizontal w-full">
           <div className="flex justify-center items-center gap-2 text-sm w-full">
-            <div>
+            {/* <div>
               <a
                 href="https://github.com/scaffold-eth/se-2"
                 target="_blank"
@@ -40,10 +49,10 @@ export const Footer = () => {
               >
                 Fork me
               </a>
-            </div>
+            </div> */}
             <span>·</span>
             <div>
-              Built with{" "}
+              {" "}
               <a
                 href="https://docs.scaffoldeth.io/scaffold-eth/"
                 target="_blank"
@@ -54,7 +63,7 @@ export const Footer = () => {
               </a>
             </div>
             <span>·</span>
-            <div>
+            {/* <div>
               <a
                 href="https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA"
                 target="_blank"
@@ -63,7 +72,7 @@ export const Footer = () => {
               >
                 Support
               </a>
-            </div>
+            </div> */}
           </div>
         </ul>
       </div>
