@@ -36,7 +36,7 @@ export const Footer = () => {
       </div>
       <div className="w-full">
         <ul className="menu menu-horizontal w-full">
-          <div className="flex flex-col sm:flex-row text-sm w-full relative">
+          <div className="flex flex-col md:flex-row text-sm w-full relative">
             {/* <div>
               <a
                 href="https://github.com/scaffold-eth/se-2"
@@ -47,7 +47,7 @@ export const Footer = () => {
                 Fork me
               </a>
             </div> */}
-            <div className="flex w-full justify-center">
+            <div className="flex flex-row w-full justify-center">
               {" "}
               <a
                 href="https://docs.scaffoldeth.io/scaffold-eth/"
@@ -58,7 +58,10 @@ export const Footer = () => {
                 Scaffold-eth
               </a>
             </div>
-            <div className="flex-shrink text-sm right-0 absolute">© 2023 Slack Protocol. All rights reserved.</div>
+            <br className="md:hidden" />
+            <div className="flex flex-row text-sm self-center md:right-0 md:absolute">
+              © 2023 Slack Protocol. All rights reserved.
+            </div>
 
             {/* <div>
               <a

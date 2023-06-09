@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="flex bg-base-100 flex-col flex-grow">
-        <div className="flex flex-col flex-cols-1 sm:flex-cols-2 justify-items-start">
+        <div className="flex flex-col sm:flex-row justify-items-start">
           <div className="flex flex-col flex-grow mt-20 sm:mt-60 pl-12">
             <h1 className="mb-8">
               <span className="block text-2xl mb-2">Welcome to</span>
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
               <code className="italic bg-base-200 text-sm font-bold">packages/hardhat/contracts</code>
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row md:flex-grow mt-10 px-3">
+          <div className="flex flex-col md:flex-grow mt-10 px-3 -py-5">
             <iframe
               src="https://app.uniswap.org/#/swap?theme=darkexactField=input&exactAmount=10&inputCurrency=0x6b175474e89094c44da98b954eedeac495271d0f"
               height="660px"
