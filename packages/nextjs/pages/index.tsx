@@ -12,26 +12,25 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="flex bg-base-100 flex-col flex-grow">
-        <div className="flex sm:flex-row justify-items-start">
-          <div className="flex sm:flex-col flex-grow mt-60 pl-12">
+        <div className="flex flex-col flex-cols-1 sm:flex-cols-2 justify-items-start">
+          <div className="flex flex-col flex-grow mt-20 sm:mt-60 pl-12">
             <h1 className="mb-8">
               <span className="block text-2xl mb-2">Welcome to</span>
               <span className="block text-4xl font-bold">Slash Protocol</span>
             </h1>
-            <p className="text-lg">
+            <p className="sm:text-lg text-lg">
               A deflationary protocol built on Arbitrum.{" "}
-              <code className="italic bg-base-200 text-base font-bold">packages/nextjs/pages/index.tsx</code>
+              <code className="italic bg-base-200 text-sm font-bold">packages/nextjs/pages/index.tsx</code>
             </p>
-            <p className="text-lg">
-              Edit your smart contract <code className="italic bg-base-200 text-base font-bold">YourContract.sol</code>{" "}
-              in <code className="italic bg-base-200 text-base font-bold">packages/hardhat/contracts</code>
+            <p className="sm:text-lg text-sm ">
+              Edit your smart contract <code className="italic bg-base-200 text-sm font-bold">YourContract.sol</code> in{" "}
+              <code className="italic bg-base-200 text-sm font-bold">packages/hardhat/contracts</code>
             </p>
           </div>
-          <div className="flex sm:flex-col md:flex-grow pl-48 w-[50%] lg:min-w-[50%] sm:min-w-[50%] -mb-24 mt-10">
+          <div className="flex flex-col sm:flex-row md:flex-grow mt-10 px-3">
             <iframe
               src="https://app.uniswap.org/#/swap?theme=darkexactField=input&exactAmount=10&inputCurrency=0x6b175474e89094c44da98b954eedeac495271d0f"
               height="660px"
-              width="95%"
             ></iframe>
           </div>
           {/* <div className="bg-base-200 md:flex-row min-w-[95%] md:min-w-[95%] lg:min-w-[95%] sm:min-w-[90%] my-8"> */}
@@ -63,8 +62,8 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className="bg-base-200 md:flex-row min-w-[95%] md:min-w-[95%] lg:min-w-[95%] sm:min-w-[90%] my-8">
-          <div className="grid grid-cols-1 py-4 px-4 gap-8 gap-x-20 md:grid-cols-3 justify-center">
+        <div className="bg-base-200 md:flex-row min-w-[90%] md:min-w-[95%] lg:min-w-[95%] sm:min-w-[90%] mx-4 my-8 rounded-2xl">
+          <div className="grid grid-cols-2 py-2 sm:py-4 px-2 sm:px-4 mt-2 gap-2 gap-x-2 sm:gap-8 sm:gap-x-5 sm:gap-x-10 md:grid-cols-3 justify-center">
             <div className="bg-base-100 py-6 rounded-xl mb-2 text-center">
               <p className="hover:text-size">Total TVL</p>
               <p className="hover:text-size">Object 1</p>
@@ -117,9 +116,9 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className="flex-grow bg-base-100 w-full mt-25 px-8 py-12">
+        <div className="flex-grow bg-base-100 w-full mt-25 px-2 sm:px-36 py-12">
           <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-            <div className="flex flex-col bg-base-300 px-64 py-20 text-center items-center w-full rounded-3xl">
+            <div className="flex flex-col bg-base-300 px-5 py-20 text-center items-center w-full rounded-3xl">
               <BugAntIcon className="h-8 w-8 fill-secondary" />
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit,{" "}
